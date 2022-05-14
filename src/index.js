@@ -1,20 +1,18 @@
 // css files here
 import './style.css';
 import dummy from './modules/dummy.js';
-import mockScores from './modules/mockup.js';
+import Score from './modules/scoreApi.js';
 
-mockScores(dummy);
-
-const container = document.querySelector('.form');
-const iName = document.querySelector('#iNname');
-const iScore = document.querySelector('#iScore');
-
-container.onsubmit = (e) => {
+const newScore = new Score();
+const addNewScore = document.querySelector('.add-new-score');
+addNewScore.addEventListener('submit', (e) => {
   e.preventDefault();
-  const name = iName.value;
-  const score = iScore.value;
+  const user = addNewScore.name.value;
+  const scoreNum = addNewScore.score.value;
+  newScore.addScore({ user, scoreNum });
+  addNewScore.name.value = '';
+  addNewScore.score.value = '';
+});
 
-  dummy.push({ name, score });
-
-  mockScores(dummy);
-};
+const refreshButton = document.querySelector('.refresh-button');
+refreshButton.addEventListener('click', newScore.fetchScore);

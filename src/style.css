@@ -1,82 +1,159 @@
-/* CSS */
-
 :root {
-  --max-width: 600px;
+  --black: #000;
+  --gray: #e5e5e5;
+  --white: #fff;
 }
 
 *,
-*::before,
-*::after {
-  padding: 0;
+body {
   margin: 0;
-  box-sizing: inherit;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-html {
-  box-sizing: border-box;
-}
-
-h1 {
-  padding: 1em 0;
-}
-
-ul {
-  list-style: none;
-}
-
-header {
-  margin: auto;
-  max-width: var(--max-width);
-}
-
-.main {
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
-  max-width: var(--max-width);
-}
-
-.container {
+.main-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
 }
 
-.recent-scores-container {
-  width: 100%;
-  max-width: 300px;
+.main-container h1 {
+  width: 70%;
+  padding: 50px 0 50px 0;
+  font-size: 38px;
+  font-weight: 700;
 }
 
-.recent {
+.score-container {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+button,
+input[type="submit"] {
+  outline: none;
+  border: 1px var(--black) solid;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px var(--black);
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: var(--gray);
+}
+
+.recent-score {
+  width: 50%;
+  border: 1px var(--black) solid;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.recent-score-header {
   display: flex;
   justify-content: space-between;
+  padding: 20px 10px;
 }
 
-.scores {
-  border: 2px solid black;
+.recent-score li {
+  padding: 10px;
+  list-style: none;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.scores li {
-  padding: 0.3em;
+.list-gray {
+  background-color: var(--gray);
 }
 
-.scores li:nth-child(even) {
-  background-color: lightgray;
+.list-white {
+  background-color: var(--white);
 }
 
-.table-title {
-  padding-bottom: 20px;
-}
-
-.form {
+.add-new-score {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  padding: 20px 10px;
+  gap: 30px;
 }
 
-.form input {
-  padding: 0.3em;
+.add-new-score h2 {
+  width: calc(100% - 30px);
 }
 
-.form button {
-  align-self: flex-end;
+.add-new-score input {
+  outline: none;
+  padding: 10px 20px;
+  border: 1px var(--black) solid;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  width: calc(100% - 40px);
+  border-radius: 5px;
+}
+
+.add-new-score input::placeholder {
+  color: var(--black);
+}
+
+.add-new-score input:last-child {
+  width: 100px;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .score-container {
+    min-width: 350px;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .recent-score,
+  .add-new-score h2 {
+    width: 100%;
+  }
+
+  .add-new-score {
+    width: calc(100% - 20px);
+  }
+
+  .add-new-score input {
+    width: calc(100% - 20px);
+    padding: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .score-container {
+    min-width: calc(100% - 20px);
+  }
+
+  .main-container h1 {
+    width: 350px;
+    text-align: center;
+  }
+
+  .recent-score {
+    overflow-x: auto;
+  }
+
+  .recent-score li {
+    width: auto;
+  }
 }
