@@ -28,7 +28,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone the project
 ```terminal
-git clone git@github.com:JauJau088/leaderboard-with-api.git
+git clone https://github.com/ger619/leaderboard-api.git
 ```
 
 - cd into the project directory
