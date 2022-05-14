@@ -33,7 +33,7 @@ git clone https://github.com/ger619/leaderboard-api.git
 
 - cd into the project directory
 ```terminal
-cd leaderboard-with-api
+cd leaderboard-api
 ```
 
 - Once you clone the repo, go to the directory and run `npm install` command to get all necessary instalations.
